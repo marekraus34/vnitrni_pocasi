@@ -163,7 +163,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
     <h1 class="title" data-i18n="title">Vnitřní počasí</h1>
     <p class="subtitle" data-i18n="subtitle">Krátký pohled na to, v jaké je období – a jak jí ho dnes můžeš usnadnit.</p>
     <div class="lang-switch">
-      <button class="lang-btn active" data-lang="cs">CZ</button>
+      <button class="lang-btn" data-lang="cs">CZ</button>
       <button class="lang-btn" data-lang="en">EN</button>
     </div>
   </header>
@@ -461,13 +461,11 @@ async function saveData() {
 /* ================================================================
    3. CYCLE MATH (SMART LUTEAL MODEL)
    ================================================================ */
-// Luteální fáze je biologicky relativně fixní (zpravidla 12-14 dní do další menstruace).
-// Model: Folikulární fáze pohlcuje variabilitu délky cyklu.
 function getPhaseDayRanges(cycleLength, periodLength) {
   var pl = Math.min(periodLength, cycleLength - 3);
   var lutealLen = (cycleLength < 22) ? Math.floor(cycleLength/2) : 14; 
   var lutealStart = cycleLength - lutealLen + 1;
-  var ovulatoryStart = lutealStart - 4; // Ovulační okno 4 dny před luteální
+  var ovulatoryStart = lutealStart - 4;
 
   return {
     menstrual:  { start: 1, end: pl },
@@ -500,7 +498,6 @@ function getContextualTips(dateObj, phaseKey) {
   var tips = [];
   var dTime = dateObj.getTime();
   
-  // Najdi záznamy z posledních 2 dnů
   var recent = journal.filter(function(e){
     var eTime = new Date(e.date+'T00:00:00').getTime();
     var diff = (dTime - eTime) / 86400000;
@@ -547,12 +544,10 @@ function renderMain() {
 
   var list = document.getElementById('result-do-list');
   list.innerHTML = '';
-  // 1. Contextual rules (high priority)
   var ctxTips = getContextualTips(selectedDate, phaseKey);
   ctxTips.forEach(function(tip){
     var li = document.createElement('li'); li.className='ctx-tip'; li.textContent = tip; list.appendChild(li);
   });
-  // 2. Standard phase rules
   phaseData.dos.forEach(function(tip){
     var li = document.createElement('li'); li.textContent = tip; list.appendChild(li);
   });
@@ -609,7 +604,6 @@ function renderInsights() {
   }
   var avg = diffs.reduce(function(a,b){return a+b;},0) / diffs.length;
   
-  // CSS Trend Chart
   var maxH = Math.max.apply(null, diffs) + 5;
   diffs.forEach(function(d){
     var pct = (d/maxH)*100;
@@ -620,11 +614,9 @@ function renderInsights() {
   var avgLine = document.createElement('div'); avgLine.className='avg-line'; avgLine.style.bottom = ((avg/maxH)*100)+'%';
   chart.appendChild(avgLine);
 
-  // Zjednodušená korelační analýza (Stres vs. Délka)
   var variance = Math.max.apply(null, diffs) - Math.min.apply(null, diffs);
   var insightMsg = t('ctx').trend_ok;
   if (variance > 6) {
-    // Kdybychom meli vice dat v deniku, slo by pocitat Pearsona, takhle pouzijeme jednoduchou heuristiku:
     var hasHighStress = journal.some(function(e){ return e.stress >= 4; });
     if(hasHighStress) insightMsg = t('ctx').trend_stress;
     else insightMsg = 'Cyklus výrazně kolísá (rozptyl '+variance+' dní).';
@@ -667,6 +659,7 @@ function formatDate(d){ return d.getDate()+'. '+(d.getMonth()+1)+'. '+d.getFullY
 /* ================================================================
    6. BIND EVENTS
    ================================================================ */
+// OPRAVA TLAČÍTEK JAZYKA - reload po uložení preferovaného jazyka
 document.querySelectorAll('.lang-btn').forEach(function(b){
   b.onclick = function(){ localStorage.setItem('vp-lang', b.dataset.lang); location.reload(); };
 });
@@ -714,7 +707,6 @@ document.getElementById('add-period-form').onsubmit = async function(e){
   document.getElementById('add-period-date').value='';
 };
 
-// ÚPRAVA ZDE: Onboarding nyní zpracovává i hodnoty z profilu
 document.getElementById('onboarding-form').onsubmit = async function(e){
   e.preventDefault();
   var d = document.getElementById('ob-start').value; if(!d) return;
@@ -722,12 +714,32 @@ document.getElementById('onboarding-form').onsubmit = async function(e){
   settings.cycleLength = parseInt(document.getElementById('ob-cycle').value, 10);
   settings.periodLength = parseInt(document.getElementById('ob-period').value, 10);
   
-  // Zachytáváme nová profilová data
   settings.age = document.getElementById('ob-prof-age').value;
   settings.activity = document.getElementById('ob-prof-activity').value;
   settings.contraception = document.getElementById('ob-prof-pill').checked;
 
   await saveData(); init();
+};
+
+// OPRAVA TLAČÍTEK POSUNU DNŮ - Použití renderMain() místo starého názvu
+document.getElementById('prev-day').onclick = function(){
+  selectedDate = new Date(selectedDate);
+  selectedDate.setDate(selectedDate.getDate() - 1);
+  renderMain();
+};
+document.getElementById('next-day').onclick = function(){
+  selectedDate = new Date(selectedDate);
+  selectedDate.setDate(selectedDate.getDate() + 1);
+  renderMain();
+};
+document.getElementById('today-btn').onclick = function(){
+  selectedDate = new Date();
+  renderMain();
+};
+document.getElementById('date-input').onchange = function(e){
+  if (!e.target.value) return;
+  selectedDate = new Date(e.target.value);
+  renderMain();
 };
 
 document.getElementById('delete-data-btn').onclick = function(){
@@ -739,6 +751,12 @@ document.getElementById('delete-data-btn').onclick = function(){
    ================================================================ */
 async function init() {
   document.documentElement.lang = lang;
+  
+  // OPRAVA TLAČÍTEK JAZYKA - aplikace CSS třídy po načtení
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var text = t(el.dataset.i18n); if(text) el.textContent = text;
   });
