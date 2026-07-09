@@ -31,7 +31,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
 .app>*:nth-child(3){animation-delay:.1s;}
 .app>*:nth-child(4){animation-delay:.15s;}
 @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-/* Hero */
+
+/* Typography & Core */
 .hero{text-align:center;padding-top:4px;}
 .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);margin:0 0 10px;}
 .title{font-family:var(--font-display);font-weight:600;font-size:clamp(32px,8vw,44px);margin:0 0 10px;letter-spacing:-0.01em;}
@@ -39,25 +40,23 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-siz
 .lang-switch{display:flex;gap:6px;justify-content:center;}
 .lang-btn{background:var(--surface);border:1px solid var(--border);border-radius:999px;color:var(--ink-dim);font-family:var(--font-mono);font-size:12px;padding:5px 14px;cursor:pointer;letter-spacing:.06em;transition:background .15s,color .15s;}
 .lang-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink);}
-.lang-btn:hover:not(.active){background:var(--surface-2);}
-.lang-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
 .loading-msg{text-align:center;color:var(--ink-dim);font-family:var(--font-mono);font-size:13px;}
-/* Card */
 .card{background:var(--surface);border-radius:var(--radius);padding:24px 22px;border:1px solid var(--border);}
+
 /* Forms */
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.field.checkbox{flex-direction:row;align-items:center;gap:12px;}
 .field span{font-size:13px;color:var(--ink-dim);}
-.field input,.field textarea{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--ink);font-family:var(--font-mono);font-size:15px;padding:11px 12px;width:100%;}
+.field input[type="number"],.field input[type="date"],.field textarea,.field select{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--ink);font-family:var(--font-mono);font-size:15px;padding:11px 12px;width:100%;}
+.field select{font-family:var(--font-body);appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B6A9BC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;}
 textarea#j-note{font-family:var(--font-body);font-size:14px;resize:vertical;min-height:60px;}
-.field input:focus-visible,.field textarea:focus-visible{outline:2px solid var(--ink);outline-offset:1px;}
+.field input:focus-visible,.field textarea:focus-visible,.field select:focus-visible{outline:2px solid var(--ink);outline-offset:1px;}
 input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
 .row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .btn-primary{width:100%;background:var(--ink);color:var(--bg);border:none;border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:15px;padding:13px 20px;cursor:pointer;transition:transform .15s,opacity .15s;margin-top:4px;}
 .btn-primary:hover{opacity:.92;}
 .btn-primary:active{transform:scale(.98);}
-.btn-primary:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
-.onboarding h2{font-family:var(--font-display);font-size:22px;margin:0 0 8px;font-weight:600;}
-.onboarding>p{color:var(--ink-dim);font-size:14px;margin:0 0 20px;line-height:1.55;}
+
 /* Wheel */
 .wheel-section{display:flex;justify-content:center;}
 .wheel-wrap{position:relative;width:min(248px,62vw);aspect-ratio:1/1;}
@@ -68,47 +67,43 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
 .wheel-day-label{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink-dim);text-transform:uppercase;}
 .wheel-day{font-family:var(--font-mono);font-size:clamp(30px,9vw,38px);font-weight:500;line-height:1.15;}
 .wheel-phase-label{font-family:var(--font-display);font-size:16px;margin-top:2px;transition:color .3s;}
-/* Date nav */
+
+/* Nav */
 .date-nav{display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;}
 .nav-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--ink);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
-.nav-btn:hover{background:var(--surface-2);}
-.nav-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
 #date-input{background:var(--surface);border:1px solid var(--border);border-radius:999px;color:var(--ink);font-family:var(--font-mono);font-size:14px;padding:9px 14px;min-width:0;}
-#date-input:focus-visible{outline:2px solid var(--ink);outline-offset:1px;}
 .today-btn{background:transparent;border:1px solid var(--border);border-radius:999px;color:var(--ink-dim);font-family:var(--font-body);font-size:13px;padding:9px 16px;cursor:pointer;}
-.today-btn:hover{color:var(--ink);border-color:var(--ink-dim);}
-.today-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
-/* Result */
+
+/* Result Card */
 .result-card{--accent:var(--summer);border-top:4px solid var(--accent);}
 .result-date{font-family:var(--font-mono);font-size:12px;color:var(--ink-dim);margin:0 0 14px;}
-.result-season{font-family:var(--font-mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 4px;font-weight:500;transition:color .3s;}
+.result-season{font-family:var(--font-mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 4px;font-weight:500;}
 .result-phase{font-family:var(--font-display);font-size:26px;margin:0 0 4px;font-weight:600;}
 .result-days{color:var(--ink-dim);font-size:13px;margin:0 0 20px;}
 .energy{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
 .energy-label{font-size:12px;color:var(--ink-dim);width:54px;flex-shrink:0;}
 .energy-track{flex:1;height:6px;background:var(--surface-2);border-radius:99px;overflow:hidden;}
-.energy-fill{height:100%;background:var(--accent);border-radius:99px;transition:width .5s,background .3s;width:0%;}
-.energy-value{font-size:12px;color:var(--ink-dim);width:74px;text-align:right;flex-shrink:0;}
+.energy-fill{height:100%;background:var(--accent);border-radius:99px;transition:width .5s;width:0%;}
+.energy-value{font-size:12px;color:var(--ink-dim);width:74px;text-align:right;}
 .result-mood{font-size:15px;line-height:1.6;margin:0 0 22px;}
-.result-dos h3,.forecast h3{font-family:var(--font-body);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin:0 0 12px;font-weight:600;}
+.result-dos h3,.forecast h3,.insights h3{font-family:var(--font-body);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin:0 0 12px;font-weight:600;}
 .result-dos ul{list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px;}
 .result-dos li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.5;}
 .result-dos li::before{content:'–';position:absolute;left:0;color:var(--accent);}
+.result-dos li.ctx-tip::before{content:'★';color:var(--summer);}
 .result-avoid{font-size:13.5px;color:var(--ink-dim);line-height:1.5;margin:0;padding-top:16px;border-top:1px solid var(--border);}
 .result-avoid strong{color:var(--ink);font-weight:600;}
-.result-journal{margin-top:18px;padding-top:16px;border-top:1px solid var(--border);}
-.result-journal h3{font-family:var(--font-body);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin:0 0 8px;font-weight:600;}
-.result-journal p{font-size:13.5px;color:var(--ink);line-height:1.5;margin:0;}
-/* Forecast */
+.pill-warning{background:rgba(224,135,91,0.1);border-left:3px solid var(--autumn);padding:12px;font-size:13px;border-radius:4px;margin-bottom:20px;}
+
+/* Forecast Strip */
 .forecast-strip{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;}
 .forecast-chip{--accent:var(--summer);flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:10px 13px;cursor:pointer;font-family:var(--font-body);color:var(--ink-dim);}
-.forecast-chip .fc-dow{font-size:11px;text-transform:uppercase;letter-spacing:.04em;}
+.forecast-chip .fc-dow{font-size:11px;text-transform:uppercase;}
 .forecast-chip .fc-date{font-family:var(--font-mono);font-size:13px;color:var(--ink);}
 .forecast-chip .fc-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
 .forecast-chip.active{border-color:var(--accent);background:var(--surface-2);}
-.forecast-chip:hover{background:var(--surface-2);}
-.forecast-chip:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
-/* Collapsible */
+
+/* Collapsible Details */
 .settings{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:4px 22px;}
 .settings summary{cursor:pointer;padding:16px 0;font-family:var(--font-body);font-weight:600;font-size:14px;color:var(--ink-dim);list-style:none;display:flex;align-items:center;justify-content:space-between;}
 .settings summary::-webkit-details-marker{display:none;}
@@ -117,48 +112,47 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
 .settings[open] summary{color:var(--ink);}
 .summary-title{display:flex;align-items:center;gap:8px;}
 .settings-body{padding:4px 0 20px;}
-.hint{font-size:12.5px;color:var(--ink-dim);line-height:1.6;margin:10px 0 0;}
-.hint.warn{color:var(--summer);}
-.settings-status,.journal-status{font-size:12.5px;color:var(--spring);height:16px;opacity:0;transition:opacity .3s;margin:8px 0 0;}
-.settings-status.show,.journal-status.show{opacity:1;}
-.link-btn{background:none;border:none;color:var(--ink-dim);font-family:var(--font-body);font-size:12.5px;text-decoration:underline;cursor:pointer;padding:14px 0 0;display:inline-block;}
-.link-btn:hover{color:var(--ink);}
+.status-msg{font-size:12.5px;color:var(--spring);height:16px;opacity:0;transition:opacity .3s;margin:8px 0 0;}
+.status-msg.show{opacity:1;}
 .count-badge{font-family:var(--font-mono);font-size:11px;color:var(--ink-dim);background:var(--surface-2);padding:1px 8px;border-radius:999px;}
 .count-badge:empty{display:none;}
-.inline-add-form{display:flex;gap:8px;margin-top:2px;}
-.inline-add-form input{flex:1;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--ink);font-family:var(--font-mono);font-size:14px;padding:9px 11px;}
-.btn-small{background:var(--ink);color:var(--bg);border:none;border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:9px 16px;cursor:pointer;flex-shrink:0;}
-.btn-small:hover{opacity:.9;}
-.btn-small:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
-.history-list,.journal-list{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:2px;max-height:260px;overflow-y:auto;}
-.history-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 2px;border-bottom:1px solid var(--border);font-size:13.5px;}
-.history-item:last-child{border-bottom:none;}
-.journal-item{padding:10px 2px;border-bottom:1px solid var(--border);font-size:13.5px;}
-.journal-item:last-child{border-bottom:none;}
-.journal-item-meta{display:flex;align-items:center;gap:8px;}
-.j-date{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-dim);flex-shrink:0;}
-.j-rating{font-family:var(--font-mono);font-size:12.5px;color:var(--ink);margin-right:auto;}
-.j-symptoms{font-size:12.5px;color:var(--ink-dim);margin-top:4px;}
-.j-note{font-size:13px;color:var(--ink);margin-top:4px;font-style:italic;}
-.empty-state{color:var(--ink-dim);font-size:13px;font-style:italic;padding:8px 2px;list-style:none;}
-.delete-x{background:none;border:none;color:var(--ink-dim);font-size:18px;line-height:1;cursor:pointer;padding:2px 6px;flex-shrink:0;}
-.delete-x:hover{color:var(--autumn);}
-.delete-x:focus-visible{outline:2px solid var(--ink);outline-offset:1px;}
+
+/* Journal Form Additions */
 .field-group{border:none;padding:0;margin:0 0 16px;}
 .field-group legend{padding:0;margin-bottom:9px;font-size:13px;color:var(--ink-dim);}
 .rating-buttons{display:flex;gap:8px;margin-bottom:6px;}
 .rating-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:var(--surface-2);color:var(--ink-dim);font-family:var(--font-mono);font-size:14px;cursor:pointer;}
 .rating-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink);}
-.rating-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
 .rating-scale-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-dim);padding:0 2px;}
 .symptom-tags{display:flex;flex-wrap:wrap;gap:8px;}
 .tag-btn{background:var(--surface-2);border:1px solid var(--border);border-radius:999px;color:var(--ink-dim);font-family:var(--font-body);font-size:13px;padding:7px 13px;cursor:pointer;}
 .tag-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink);}
-.tag-btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
-.validation-msg{font-size:12.5px;color:var(--autumn);margin:0 0 12px;}
-.footnote{font-size:12.5px;color:var(--ink-dim);line-height:1.6;text-align:center;max-width:46ch;margin:0 auto;padding-bottom:8px;}
+
+/* Insights Section */
+.insights-block{margin-bottom:24px;}
+.insight-stat{font-family:var(--font-mono);font-size:24px;color:var(--ink);display:block;margin-bottom:4px;}
+.insight-label{font-size:13px;color:var(--ink-dim);line-height:1.4;display:block;}
+.trend-chart{display:flex;align-items:flex-end;gap:4px;height:100px;margin-top:12px;padding-bottom:20px;border-bottom:1px solid var(--border);position:relative;}
+.trend-bar-wrap{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;position:relative;}
+.trend-bar{width:100%;max-width:24px;background:var(--surface-2);border-radius:4px 4px 0 0;transition:height .3s;}
+.trend-val{position:absolute;bottom:-20px;font-family:var(--font-mono);font-size:10px;color:var(--ink-dim);}
+.avg-line{position:absolute;left:0;right:0;border-top:1px dashed var(--spring);z-index:1;opacity:0.6;}
+.insight-text-box{background:var(--surface-2);padding:14px;border-radius:var(--radius-sm);font-size:13.5px;color:var(--ink);margin-top:12px;border-left:3px solid var(--summer);}
+
+.inline-add-form{display:flex;gap:8px;margin-top:2px;}
+.inline-add-form input{flex:1;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--ink);font-family:var(--font-mono);font-size:14px;padding:9px 11px;}
+.btn-small{background:var(--ink);color:var(--bg);border:none;border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:9px 16px;cursor:pointer;flex-shrink:0;}
+
+.history-list,.journal-list{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:2px;max-height:260px;overflow-y:auto;}
+.history-item,.journal-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 2px;border-bottom:1px solid var(--border);font-size:13.5px;}
+.journal-item{flex-direction:column;align-items:flex-start;}
+.journal-item-meta{display:flex;align-items:center;gap:8px;width:100%;}
+.j-date{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-dim);flex-shrink:0;}
+.j-badges{display:flex;gap:6px;margin-right:auto;}
+.j-badge{font-family:var(--font-mono);font-size:11px;padding:2px 6px;border-radius:4px;background:var(--surface-2);color:var(--ink-dim);}
+.j-symptoms,.j-note{font-size:12.5px;color:var(--ink-dim);margin-top:4px;}
+.delete-x{background:none;border:none;color:var(--ink-dim);font-size:18px;line-height:1;cursor:pointer;padding:2px 6px;flex-shrink:0;}
 [hidden]{display:none !important;}
-@media(prefers-reduced-motion:reduce){.app>*{animation:none;}.wheel-marker,.energy-fill,.btn-primary,.lang-btn,.forecast-chip,.wheel-phase-label,.result-season{transition:none !important;}}
 </style>
 </head>
 <body>
@@ -168,7 +162,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
     <p class="eyebrow" data-i18n="eyebrow">Čtyři roční období</p>
     <h1 class="title" data-i18n="title">Vnitřní počasí</h1>
     <p class="subtitle" data-i18n="subtitle">Krátký pohled na to, v jaké je období – a jak jí ho dnes můžeš usnadnit.</p>
-    <div class="lang-switch" role="group" aria-label="Language">
+    <div class="lang-switch">
       <button class="lang-btn active" data-lang="cs">CZ</button>
       <button class="lang-btn" data-lang="en">EN</button>
     </div>
@@ -178,22 +172,20 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
 
   <section class="card onboarding" id="onboarding" hidden>
     <h2 data-i18n="ob_h2">Než začneme</h2>
-    <p data-i18n="ob_p">Stačí datum, kdy naposledy začala menstruace. Tenhle záznam bude i první položkou v historii cyklů – další si pak přidáš během používání.</p>
     <form id="onboarding-form">
-      <label class="field"><span data-i18n="ob_start_label">Datum prvního dne poslední menstruace</span><input type="date" id="ob-start" required></label>
+      <label class="field"><span data-i18n="ob_start_label">Začátek poslední menstruace</span><input type="date" id="ob-start" required></label>
       <div class="row-2">
-        <label class="field"><span data-i18n="ob_cycle_label">Délka cyklu (dny)</span><input type="number" id="ob-cycle" min="21" max="40" value="28" required></label>
-        <label class="field"><span data-i18n="ob_period_label">Délka menstruace (dny)</span><input type="number" id="ob-period" min="2" max="10" value="5" required></label>
+        <label class="field"><span data-i18n="ob_cycle_label">Délka cyklu (dny)</span><input type="number" id="ob-cycle" min="21" max="45" value="28" required></label>
+        <label class="field"><span data-i18n="ob_period_label">Délka menstruace</span><input type="number" id="ob-period" min="2" max="10" value="5" required></label>
       </div>
       <button type="submit" class="btn-primary" data-i18n="ob_submit">Uložit a zobrazit</button>
     </form>
   </section>
 
   <main id="main" hidden>
-
     <section class="wheel-section">
       <div class="wheel-wrap">
-        <svg id="wheel-svg" viewBox="0 0 240 240" role="img" aria-label="Cycle phase wheel">
+        <svg id="wheel-svg" viewBox="0 0 240 240">
           <g id="wheel-rotor" transform="rotate(-90 120 120)">
             <circle id="wheel-marker" class="wheel-marker" cx="208" cy="120" r="10"></circle>
           </g>
@@ -215,24 +207,25 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
 
     <section class="card result-card" id="result-card">
       <p class="result-date" id="result-date">–</p>
+      <div id="pill-warning" class="pill-warning" hidden data-i18n="pill_warning">Při hormonální antikoncepci jsou přirozené výkyvy potlačeny. Fáze berte spíše jako orientační měřítko.</div>
       <p class="result-season" id="result-season">–</p>
       <h2 class="result-phase" id="result-phase">–</h2>
       <p class="result-days" id="result-days">–</p>
+      
       <div class="energy">
         <span class="energy-label" data-i18n="energy_label">Energie</span>
         <div class="energy-track"><div class="energy-fill" id="energy-fill"></div></div>
         <span class="energy-value" id="energy-value">–</span>
       </div>
+      
       <p class="result-mood" id="result-mood"></p>
+      
       <div class="result-dos">
-        <h3 id="dos-heading" data-i18n="dos_heading">Co dělat</h3>
+        <h3 data-i18n="dos_heading">Co dělat</h3>
         <ul id="result-do-list"></ul>
       </div>
-      <p class="result-avoid"><strong id="avoid-label" data-i18n="avoid_label">Vyvaruj se:</strong> <span id="result-avoid-text"></span></p>
-      <div class="result-journal" id="result-journal" hidden>
-        <h3 id="journal-day-heading" data-i18n="journal_day_heading">Zápis pro tento den</h3>
-        <p id="result-journal-content"></p>
-      </div>
+      
+      <p class="result-avoid"><strong data-i18n="avoid_label">Vyvaruj se:</strong> <span id="result-avoid-text"></span></p>
     </section>
 
     <section class="forecast">
@@ -240,685 +233,516 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
       <div class="forecast-strip" id="forecast-strip"></div>
     </section>
 
-    <details class="settings" id="history-details">
-      <summary><span class="summary-title"><span id="history-summary-text">Historie menstruací</span> <span class="count-badge" id="history-count"></span></span></summary>
-      <div class="settings-body">
-        <p class="hint" id="history-stats"></p>
-        <ul class="history-list" id="history-list"></ul>
-        <form id="add-period-form" class="inline-add-form">
-          <input type="date" id="add-period-date" required>
-          <button type="submit" class="btn-small" id="add-period-btn" data-i18n="history_add_btn">Přidat</button>
-        </form>
-        <p class="hint warn" id="drift-warning" hidden data-i18n="drift_warning">Od posledního záznamu uplynul už víc než jeden celý cyklus. Přidej novou menstruaci výš, ať zůstane odhad přesný.</p>
+    <!-- PŘEHLEDY A ANALÝZA -->
+    <details class="settings" id="insights-details">
+      <summary><span class="summary-title" data-i18n="insights_summary">Přehledy a analýza</span></summary>
+      <div class="settings-body" id="insights-body">
+        <div class="insights-block">
+          <h3 data-i18n="ins_trend_title">Trend délky cyklu</h3>
+          <div class="trend-chart" id="trend-chart"></div>
+          <div id="insights-smart-text"></div>
+        </div>
       </div>
     </details>
 
+    <!-- PROFIL -->
+    <details class="settings" id="profile-details">
+      <summary><span class="summary-title" data-i18n="profile_summary">Profil a životní styl</span></summary>
+      <div class="settings-body">
+        <form id="profile-form">
+          <div class="row-2">
+            <label class="field"><span data-i18n="prof_age">Věk</span><input type="number" id="prof-age" min="15" max="60"></label>
+            <label class="field"><span data-i18n="prof_activity">Úroveň aktivity</span>
+              <select id="prof-activity">
+                <option value="sedentary" data-i18n="act_sedentary">Sedavý</option>
+                <option value="light" data-i18n="act_light">Mírně aktivní</option>
+                <option value="active" data-i18n="act_active">Aktivní (trénink, sport)</option>
+                <option value="athlete" data-i18n="act_athlete">Sportovec / Vysoká</option>
+              </select>
+            </label>
+          </div>
+          <label class="field checkbox">
+            <input type="checkbox" id="prof-pill">
+            <span data-i18n="prof_pill">Užívá hormonální antikoncepci</span>
+          </label>
+          <button type="submit" class="btn-primary" data-i18n="settings_submit">Uložit</button>
+          <p class="status-msg" id="profile-status"></p>
+        </form>
+      </div>
+    </details>
+
+    <!-- DENÍK NÁLADY (ROZŠÍŘENÝ) -->
     <details class="settings" id="journal-details">
-      <summary><span class="summary-title"><span id="journal-summary-text">Deník nálady</span> <span class="count-badge" id="journal-count"></span></span></summary>
+      <summary><span class="summary-title"><span data-i18n="journal_summary">Deník</span> <span class="count-badge" id="journal-count"></span></span></summary>
       <div class="settings-body">
         <form id="journal-form">
           <label class="field"><span data-i18n="j_date_label">Datum</span><input type="date" id="j-date"></label>
+          
           <fieldset class="field-group">
-            <legend data-i18n="j_rating_legend">Energie / nálada</legend>
-            <div class="rating-buttons" id="rating-buttons">
-              <button type="button" class="rating-btn" data-value="1">1</button>
-              <button type="button" class="rating-btn" data-value="2">2</button>
-              <button type="button" class="rating-btn" data-value="3">3</button>
-              <button type="button" class="rating-btn" data-value="4">4</button>
-              <button type="button" class="rating-btn" data-value="5">5</button>
+            <legend data-i18n="j_rating_legend">Nálada / Energie (1-5)</legend>
+            <div class="rating-buttons j-rating-grp" data-type="mood">
+              <button type="button" class="rating-btn" data-value="1">1</button><button type="button" class="rating-btn" data-value="2">2</button><button type="button" class="rating-btn" data-value="3">3</button><button type="button" class="rating-btn" data-value="4">4</button><button type="button" class="rating-btn" data-value="5">5</button>
             </div>
-            <div class="rating-scale-labels"><span data-i18n="j_rating_low">Horší</span><span data-i18n="j_rating_high">Lepší</span></div>
           </fieldset>
+          
+          <div class="row-2">
+            <fieldset class="field-group">
+              <legend data-i18n="j_sleep_legend">Spánek (1-5)</legend>
+              <div class="rating-buttons j-rating-grp" data-type="sleep">
+                <button type="button" class="rating-btn" data-value="1">1</button><button type="button" class="rating-btn" data-value="2">2</button><button type="button" class="rating-btn" data-value="3">3</button><button type="button" class="rating-btn" data-value="4">4</button><button type="button" class="rating-btn" data-value="5">5</button>
+              </div>
+            </fieldset>
+            <fieldset class="field-group">
+              <legend data-i18n="j_stress_legend">Stres (1 = klid, 5 = moc)</legend>
+              <div class="rating-buttons j-rating-grp" data-type="stress">
+                <button type="button" class="rating-btn" data-value="1">1</button><button type="button" class="rating-btn" data-value="2">2</button><button type="button" class="rating-btn" data-value="3">3</button><button type="button" class="rating-btn" data-value="4">4</button><button type="button" class="rating-btn" data-value="5">5</button>
+              </div>
+            </fieldset>
+          </div>
+
           <fieldset class="field-group">
             <legend data-i18n="j_symptoms_legend">Příznaky</legend>
             <div class="symptom-tags" id="symptom-tags"></div>
           </fieldset>
-          <label class="field"><span data-i18n="j_note_label">Poznámka (nepovinné)</span><textarea id="j-note" rows="2"></textarea></label>
-          <p class="validation-msg" id="journal-validation" hidden data-i18n="journal_validation">Vyber prosím hodnocení energie/nálady 1–5.</p>
+          
+          <label class="field"><span data-i18n="j_note_label">Poznámka</span><textarea id="j-note" rows="2"></textarea></label>
           <button type="submit" class="btn-primary" data-i18n="journal_submit">Uložit zápis</button>
-          <p class="journal-status" id="journal-status"></p>
+          <p class="status-msg" id="journal-status"></p>
         </form>
         <ul class="journal-list" id="journal-list"></ul>
       </div>
     </details>
 
-    <details class="settings" id="settings-details">
-      <summary><span id="settings-summary-text" data-i18n="settings_summary">Nastavení cyklu</span></summary>
+    <!-- HISTORIE -->
+    <details class="settings" id="history-details">
+      <summary><span class="summary-title"><span data-i18n="history_summary">Historie cyklů</span> <span class="count-badge" id="history-count"></span></span></summary>
       <div class="settings-body">
-        <form id="settings-form">
-          <div class="row-2">
-            <label class="field"><span data-i18n="set_cycle_label">Délka cyklu (dny)</span><input type="number" id="set-cycle" min="21" max="40" required></label>
-            <label class="field"><span data-i18n="set_period_label">Délka menstruace (dny)</span><input type="number" id="set-period" min="2" max="10" required></label>
-          </div>
-          <button type="submit" class="btn-primary" data-i18n="settings_submit">Uložit změny</button>
-          <p class="settings-status" id="settings-status"></p>
+        <form id="add-period-form" class="inline-add-form">
+          <input type="date" id="add-period-date" required>
+          <button type="submit" class="btn-small" data-i18n="history_add_btn">Přidat</button>
         </form>
-        <p class="hint" data-i18n="settings_hint">Aktualizuj datum vždy, když začne nová menstruace – predikce tak zůstane přesná.</p>
-        <button type="button" class="link-btn" id="delete-data-btn" data-i18n="delete_data_btn">Smazat veškerá uložená data</button>
+        <ul class="history-list" id="history-list"></ul>
       </div>
     </details>
 
+    <details class="settings" id="settings-details">
+      <summary><span data-i18n="settings_summary">Systém & Data</span></summary>
+      <div class="settings-body">
+        <form id="settings-form">
+          <div class="row-2">
+            <label class="field"><span data-i18n="set_cycle_label">Výchozí cyklus</span><input type="number" id="set-cycle" required></label>
+            <label class="field"><span data-i18n="set_period_label">Menstruace</span><input type="number" id="set-period" required></label>
+          </div>
+          <button type="submit" class="btn-primary" data-i18n="settings_submit">Uložit</button>
+          <p class="status-msg" id="settings-status"></p>
+        </form>
+        <button type="button" style="margin-top:20px; color:var(--autumn); background:none; border:none; text-decoration:underline; font-size:13px; cursor:pointer;" id="delete-data-btn" data-i18n="delete_data_btn">Smazat vše</button>
+      </div>
+    </details>
   </main>
-
-  <p class="footnote" data-i18n="footnote">Tohle je obecný model podle průměrného cyklu – každé tělo i cyklus může být trochu jiný a hormonální antikoncepce ho může změnit úplně. Nejlíp funguje jako doplněk k všímavosti a otevřenému rozhovoru, ne jako náhrada za něj.</p>
-
 </div>
+
 <script>
 (function(){
 'use strict';
 
 /* ================================================================
-   1. LANGUAGE / TRANSLATIONS
+   1. TRANSLATIONS & DICTIONARIES
    ================================================================ */
-var lang = 'cs';
-
-var SYMPTOM_KEYS = ['cramps','headache','bloating','fatigue','irritability','anxiety','sugar_cravings','sensitivity'];
-
-// Old Czech symptom strings → canonical keys (migration)
-var CS_SYMPTOM_TO_KEY = {
-  'Křeče':'cramps','Bolest hlavy':'headache','Nadýmání':'bloating',
-  'Únava':'fatigue','Podrážděnost':'irritability','Úzkost':'anxiety',
-  'Chuť na sladké':'sugar_cravings','Citlivost':'sensitivity'
-};
-
+var lang = localStorage.getItem('vp-lang') || 'cs';
+var SYMPTOM_KEYS = ['cramps','headache','bloating','fatigue','irritability','anxiety','sugar_cravings'];
 var PHASE_ACCENTS = { menstrual:'--winter', follicular:'--spring', ovulatory:'--summer', luteal:'--autumn' };
 var PHASE_ENERGY_PCT = { menstrual:18, follicular:60, ovulatory:95, luteal:38 };
 
 var I18N = {
   cs: {
-    eyebrow:'Čtyři roční období', title:'Vnitřní počasí',
-    subtitle:'Krátký pohled na to, v jaké je období – a jak jí ho dnes můžeš usnadnit.',
-    loading:'Načítám nastavení…',
-    wheel_day_label:'Den cyklu',
-    today_btn:'Dnes', prev_day_aria:'Předchozí den', next_day_aria:'Další den', date_input_aria:'Zvolit datum',
-    energy_label:'Energie',
+    eyebrow:'Čtyři roční období', title:'Vnitřní počasí', subtitle:'Pohled na to, v jaké je fázi – a jak jí dnes můžeš usnadnit den.',
+    loading:'Načítám...', today_btn:'Dnes', wheel_day_label:'Den cyklu', energy_label:'Energie',
     dos_heading:'Co dělat', avoid_label:'Vyvaruj se:',
-    journal_day_heading:'Zápis pro tento den',
-    forecast_heading:'Dalších 10 dní',
-    history_add_btn:'Přidat', history_add_aria:'Datum nové menstruace',
-    drift_warning:'Od posledního záznamu uplynul už víc než jeden celý cyklus. Přidej novou menstruaci výš, ať zůstane odhad přesný.',
-    j_date_label:'Datum', j_rating_legend:'Energie / nálada',
-    j_rating_low:'Horší', j_rating_high:'Lepší',
-    j_symptoms_legend:'Příznaky', j_note_label:'Poznámka (nepovinné)',
-    journal_validation:'Vyber prosím hodnocení energie/nálady 1–5.',
-    journal_submit:'Uložit zápis',
-    journal_saved:'Uloženo.', journal_save_fail:'Uloženo jen pro tuto relaci – ukládání selhalo.',
-    journal_empty:'Zatím žádné zápisky. Přidej první výš.',
-    settings_summary:'Nastavení cyklu',
-    set_cycle_label:'Délka cyklu (dny)', set_period_label:'Délka menstruace (dny)',
-    settings_submit:'Uložit změny',
-    settings_saved:'Uloženo.', settings_save_fail:'Uloženo jen pro tuto relaci – ukládání selhalo.',
-    settings_hint:'Aktualizuj datum vždy, když začne nová menstruace – predikce tak zůstane přesná.',
-    delete_data_btn:'Smazat veškerá uložená data',
-    delete_confirm:'Opravdu smazat veškerá uložená data – historii i deník? Tuto akci nejde vrátit zpět.',
-    ob_h2:'Než začneme',
-    ob_p:'Stačí datum, kdy naposledy začala menstruace. Tenhle záznam bude i první položkou v historii cyklů – další si pak přidáš během používání.',
-    ob_start_label:'Datum prvního dne poslední menstruace',
-    ob_cycle_label:'Délka cyklu (dny)', ob_period_label:'Délka menstruace (dny)',
-    ob_submit:'Uložit a zobrazit',
-    footnote:'Tohle je obecný model podle průměrného cyklu – každé tělo i cyklus může být trochu jiný a hormonální antikoncepce ho může změnit úplně. Nejlíp funguje jako doplněk k všímavosti a otevřenému rozhovoru, ne jako náhrada za něj.',
-    dow_short:['Ne','Po','Út','St','Čt','Pá','So'],
-    weekdays:['Neděle','Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota'],
-    months_gen:['ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince'],
-    cycle_day_label:'den cyklu',
-    days_range:function(s,e,t){return 'Dny '+s+'–'+e+' z '+t;},
-    history_summary:'Historie menstruací',
-    history_one_entry:'Přidej ještě aspoň jeden záznam, ať appka spočítá skutečnou délku cyklu.',
-    history_none:'Zatím žádné záznamy.',
-    history_avg:function(avg,min,max,count){var l=count===1?'cyklu':'cyklů';return 'Skutečný průměr: '+avg+' dní (rozpětí '+min+'–'+max+', z '+count+' '+l+').';},
-    history_apply:function(avg){return 'Použít ('+avg+' dní)';},
-    cycle_gap:function(n){return 'cyklus '+n+' dní';},
-    history_delete_aria:function(d){return 'Smazat záznam '+d;},
-    journal_delete_aria:function(d){return 'Smazat zápis '+d;},
-    symptoms:{cramps:'Křeče',headache:'Bolest hlavy',bloating:'Nadýmání',fatigue:'Únava',irritability:'Podrážděnost',anxiety:'Úzkost',sugar_cravings:'Chuť na sladké',sensitivity:'Citlivost'},
+    forecast_heading:'Dalších 10 dní', insights_summary:'Přehledy a analýza', ins_trend_title:'Trend délky cyklu',
+    profile_summary:'Profil a životní styl', prof_age:'Věk', prof_activity:'Úroveň fyzické aktivity',
+    act_sedentary:'Sedavý', act_light:'Mírně aktivní', act_active:'Aktivní (trénink, sport)', act_athlete:'Sportovec / Vysoká zátěž',
+    prof_pill:'Užívá hormonální antikoncepci',
+    journal_summary:'Deník', j_date_label:'Datum', j_rating_legend:'Nálada (1-5)', j_sleep_legend:'Spánek (1=špatný, 5=skvělý)',
+    j_stress_legend:'Stres (1=klid, 5=max)', j_symptoms_legend:'Příznaky', j_note_label:'Poznámka', journal_submit:'Uložit zápis',
+    history_summary:'Historie cyklů', history_add_btn:'Přidat',
+    settings_summary:'Systém & Data', set_cycle_label:'Délka cyklu (dny)', set_period_label:'Menstruace (dny)', settings_submit:'Uložit',
+    delete_data_btn:'Smazat veškerá data', pill_warning:'Při hormonální antikoncepci jsou přirozené hormonální výkyvy potlačeny. Fáze berte spíše jako orientační.',
+    dow_short:['Ne','Po','Út','St','Čt','Pá','So'], months_gen:['ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince'],
+    symptoms:{cramps:'Křeče',headache:'Bolest hlavy',bloating:'Nadýmání',fatigue:'Únava',irritability:'Podrážděnost',anxiety:'Úzkost',sugar_cravings:'Chuť na sladké'},
     phases:{
-      menstrual:{season:'Zima',name:'Menstruační fáze',energy_label:'Nízká',
-        mood:'Tělo zpomaluje a bere si zpátečku. Časté jsou křeče, únava a chuť stáhnout se do klidu a pohodlí.',
-        dos:['Navrhni klidný večer doma – deka, čaj, film, žádný tlak na program.','Termofor nebo teplá koupel, případně něco proti bolesti, pokud o to stojí.','Dones její oblíbené jídlo nebo drobnost bez zvláštního důvodu.','Nech jí prostor, pokud ho chce, ale dej najevo, že jsi nablízku.'],
-        avoid:'Náročné výlety, velké společenské akce a bagatelizování bolesti.'},
-      follicular:{season:'Jaro',name:'Folikulární fáze',energy_label:'Stoupající',
-        mood:'Hormony i energie se probouzí. Nálada se zlepšuje a roste chuť do nových věcí i plánování.',
-        dos:['Navrhni něco nového – výlet, kurz nebo podnik, který ještě nezkusili.','Teď je dobrá chvíle plánovat společné věci, dovolenou nebo projekty.','Podpoř její nápady, je teď nejotevřenější novým podnětům.','Klidně zařaďte aktivnější program nebo společný sport.'],
-        avoid:'Nic zvláštního – tohle období většinou samo dobře šlape.'},
-      ovulatory:{season:'Léto',name:'Ovulační fáze',energy_label:'Nejvyšší',
-        mood:'Vrchol cyklu. Energie, sebevědomí i chuť na blízkost jsou na maximu a komunikace jde nejsnáz.',
-        dos:['Naplánuj rande nebo něco trochu výjimečného.','Tohle je dobrá chvíle na důležitější rozhovory.','Společenské akce, focení nebo čas s přáteli teď sedí.','Dej prostor spontánnosti a blízkosti.'],
-        avoid:'Nepromarnit to rutinou – využij tu energii spolu s ní.'},
-      luteal:{season:'Podzim',name:'Luteální fáze',energy_label:'Klesající',
-        mood:'Energie postupně klesá. První dny bývají ještě v pohodě, poslední dny před menstruací (PMS) ale často přináší podrážděnost, úzkost nebo přecitlivělost.',
-        dos:['Buď trpělivý – výkyvy nálad většinou nejsou o tobě.','Nabídni komfortní jídlo nebo něco sladkého, s mírou.','Drž poslední dny cyklu volnější, bez velkých rozhodnutí nebo stresu.','Zeptej se, jestli chce mluvit, nebo radši klid – obojí je v pořádku.'],
-        avoid:'Hádky o maličkosti, věty jako „to jsou jen hormony" a tlačení do společenských akcí.'}
+      menstrual:{season:'Zima',name:'Menstruační fáze',energy_label:'Nízká', mood:'Tělo zpomaluje a bere si zpátečku. Časté jsou křeče, únava a chuť stáhnout se do klidu.', dos:['Navrhni klidný večer doma – deka, čaj, film.','Termofor nebo teplá koupel.','Dej jí prostor, pokud ho chce.'], avoid:'Náročné výlety a bagatelizování bolesti.'},
+      follicular:{season:'Jaro',name:'Folikulární fáze',energy_label:'Stoupající', mood:'Hormony se probouzí. Nálada se zlepšuje a roste chuť do nových věcí.', dos:['Navrhni něco nového – výlet, kurz.','Plánujte společné věci a dovolenou.','Podpoř její nápady.'], avoid:'Nic zvláštního.'},
+      ovulatory:{season:'Léto',name:'Ovulační fáze',energy_label:'Nejvyšší', mood:'Vrchol cyklu. Energie a chuť na blízkost jsou na maximu.', dos:['Naplánuj rande nebo společenskou akci.','Dobrý čas na důležité rozhovory.','Dej prostor spontánnosti.'], avoid:'Rutina.'},
+      luteal:{season:'Podzim',name:'Luteální fáze',energy_label:'Klesající', mood:'Energie klesá. Poslední dny (PMS) často přináší podrážděnost nebo úzkost.', dos:['Buď trpělivý – výkyvy nálad nejsou o tobě.','Držte volnější režim bez stresu.','Zeptej se, co právě potřebuje.'], avoid:'Hádky o maličkosti a tlačení do akcí.'}
+    },
+    ctx:{
+      high_stress:'V posledních dnech zaznamenán vyšší stres. Uberte na nárocích, dej jí dnes absolutní klid.',
+      bad_sleep:'Měla horší spánek. Nabídni jí, že dnes převezmeš část jejích povinností.',
+      active_luteal:'V této fázi klesá fyzická síla. Pokud trénuje, je normální, že zvedne méně. Podpoř ji v regeneraci.',
+      active_follicular:'Fyzická síla a tolerance tréninku je teď na vrcholu. Skvělý čas na společný sport.',
+      trend_stress:'Data naznačují, že v cyklech s vyšším stresem dochází k jejich prodlužování.',
+      trend_ok:'Cyklus vypadá stabilně.'
     }
   },
   en: {
-    eyebrow:'Four Seasons', title:'Inner Weather',
-    subtitle:"A quick look at what phase she's in – and how you can make her day a little easier.",
-    loading:'Loading settings…',
-    wheel_day_label:'Cycle day',
-    today_btn:'Today', prev_day_aria:'Previous day', next_day_aria:'Next day', date_input_aria:'Choose date',
-    energy_label:'Energy',
+    eyebrow:'Four Seasons', title:'Inner Weather', subtitle:'A quick look at her phase and how you can help.',
+    loading:'Loading...', today_btn:'Today', wheel_day_label:'Cycle day', energy_label:'Energy',
     dos_heading:'What to do', avoid_label:'Avoid:',
-    journal_day_heading:"Today's entry",
-    forecast_heading:'Next 10 days',
-    history_add_btn:'Add', history_add_aria:'Date of new period',
-    drift_warning:'More than one full cycle has passed since the last entry. Add a new period above to keep the estimate accurate.',
-    j_date_label:'Date', j_rating_legend:'Energy / mood',
-    j_rating_low:'Worse', j_rating_high:'Better',
-    j_symptoms_legend:'Symptoms', j_note_label:'Note (optional)',
-    journal_validation:'Please select an energy/mood rating from 1–5.',
-    journal_submit:'Save entry',
-    journal_saved:'Saved.', journal_save_fail:'Saved for this session only – storage failed.',
-    journal_empty:'No entries yet. Add the first one above.',
-    settings_summary:'Cycle settings',
-    set_cycle_label:'Cycle length (days)', set_period_label:'Period length (days)',
-    settings_submit:'Save changes',
-    settings_saved:'Saved.', settings_save_fail:'Saved for this session only – storage failed.',
-    settings_hint:'Update the date each time a new period begins to keep the estimate accurate.',
-    delete_data_btn:'Delete all saved data',
-    delete_confirm:'Really delete all saved data – history and journal? This cannot be undone.',
-    ob_h2:'Before we start',
-    ob_p:"Just enter the date her last period started. That entry will also be the first item in the period history – you can add more as you go.",
-    ob_start_label:'First day of last period',
-    ob_cycle_label:'Cycle length (days)', ob_period_label:'Period length (days)',
-    ob_submit:'Save and view',
-    footnote:"This is a general model based on an average cycle – every body and every cycle can be different, and hormonal contraception may change it entirely. It works best as a complement to awareness and open conversation, not a replacement for them.",
-    dow_short:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
-    weekdays:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
-    months:['January','February','March','April','May','June','July','August','September','October','November','December'],
-    cycle_day_label:'cycle day',
-    days_range:function(s,e,t){return 'Days '+s+'–'+e+' of '+t;},
-    history_summary:'Period history',
-    history_one_entry:'Add at least one more entry so the app can calculate the real cycle length.',
-    history_none:'No entries yet.',
-    history_avg:function(avg,min,max,count){var l=count===1?'cycle':'cycles';return 'Real average: '+avg+' days (range '+min+'–'+max+', from '+count+' '+l+').';},
-    history_apply:function(avg){return 'Apply ('+avg+' days)';},
-    cycle_gap:function(n){return 'cycle '+n+' days';},
-    history_delete_aria:function(d){return 'Delete entry '+d;},
-    journal_delete_aria:function(d){return 'Delete entry '+d;},
-    symptoms:{cramps:'Cramps',headache:'Headache',bloating:'Bloating',fatigue:'Fatigue',irritability:'Irritability',anxiety:'Anxiety',sugar_cravings:'Sugar cravings',sensitivity:'Sensitivity'},
+    forecast_heading:'Next 10 days', insights_summary:'Insights & Analysis', ins_trend_title:'Cycle Length Trend',
+    profile_summary:'Profile & Lifestyle', prof_age:'Age', prof_activity:'Activity Level',
+    act_sedentary:'Sedentary', act_light:'Lightly active', act_active:'Active (training, sports)', act_athlete:'Athlete / High load',
+    prof_pill:'Uses hormonal contraception',
+    journal_summary:'Journal', j_date_label:'Date', j_rating_legend:'Mood (1-5)', j_sleep_legend:'Sleep (1-5)',
+    j_stress_legend:'Stress (1-5)', j_symptoms_legend:'Symptoms', j_note_label:'Note', journal_submit:'Save entry',
+    history_summary:'Cycle History', history_add_btn:'Add',
+    settings_summary:'System & Data', set_cycle_label:'Cycle length', set_period_label:'Period length', settings_submit:'Save',
+    delete_data_btn:'Delete all data', pill_warning:'Hormonal contraception suppresses natural fluctuations. Treat phases as a rough guide.',
+    dow_short:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], months_gen:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    symptoms:{cramps:'Cramps',headache:'Headache',bloating:'Bloating',fatigue:'Fatigue',irritability:'Irritability',anxiety:'Anxiety',sugar_cravings:'Sugar cravings'},
     phases:{
-      menstrual:{season:'Winter',name:'Menstrual Phase',energy_label:'Low',
-        mood:'The body slows down and pulls inward. Cramps, fatigue, and a desire for warmth and comfort are common.',
-        dos:["Suggest a quiet evening at home – a blanket, tea, a film, no pressure on the plan.","A hot water bottle or warm bath, or some pain relief if she'd like it.","Bring her favourite food or a small treat for no particular reason.","Give her space if she needs it, but let her know you're nearby."],
-        avoid:"Demanding trips, big social events, and dismissing her pain."},
-      follicular:{season:'Spring',name:'Follicular Phase',energy_label:'Rising',
-        mood:'Hormones and energy are waking up. Mood lifts and the appetite for new experiences and planning grows.',
-        dos:["Suggest something new – a trip, a class, or somewhere you haven't tried yet.","Good time to plan things together – holidays, projects, shared goals.","Back her ideas – she's most open to new input right now.","Feel free to plan a more active programme or do sport together."],
-        avoid:"Nothing in particular – this phase usually runs itself."},
-      ovulatory:{season:'Summer',name:'Ovulatory Phase',energy_label:'Peak',
-        mood:'Cycle peak. Energy, confidence, and desire for closeness are at their highest, and communication comes easiest.',
-        dos:["Plan a date or something a little special.","This is the right moment for more important conversations.","Social events, photos, or time with friends all work well now.","Make room for spontaneity and closeness."],
-        avoid:"Don't waste it on routine – use that energy together."},
-      luteal:{season:'Autumn',name:'Luteal Phase',energy_label:'Declining',
-        mood:'Energy gradually fades. The early days are often still fine, but the last days before her period (PMS) frequently bring irritability, anxiety, or heightened sensitivity.',
-        dos:["Be patient – mood swings usually aren't about you.","Offer comfort food or something sweet, in moderation.","Keep the last days of the cycle lighter – no big decisions or extra stress.","Ask whether she wants to talk or just have quiet – both are fine."],
-        avoid:"Arguments over small things, saying 'it's just hormones', and pushing her into social events."}
+      menstrual:{season:'Winter',name:'Menstrual Phase',energy_label:'Low', mood:'Body slows down. Cramps and fatigue are common.', dos:['Quiet evening at home.','Warm bath or hot water bottle.','Give her space.'], avoid:'Demanding events.'},
+      follicular:{season:'Spring',name:'Follicular Phase',energy_label:'Rising', mood:'Energy and mood are lifting.', dos:['Suggest something new.','Plan holidays or projects.','Support her ideas.'], avoid:'Nothing in particular.'},
+      ovulatory:{season:'Summer',name:'Ovulatory Phase',energy_label:'Peak', mood:'Peak energy, confidence, and desire for closeness.', dos:['Plan a date.','Good time for big talks.','Be spontaneous.'], avoid:'Routine.'},
+      luteal:{season:'Autumn',name:'Luteal Phase',energy_label:'Declining', mood:'Energy fades. Late luteal (PMS) often brings irritability.', dos:['Be patient.','Keep it low-stress.','Ask what she needs.'], avoid:'Arguments over small things.'}
+    },
+    ctx:{
+      high_stress:'High stress recorded recently. Lower expectations today and give her absolute peace.',
+      bad_sleep:'Poor sleep recently. Offer to take over some of her chores today.',
+      active_luteal:'Physical strength naturally drops in this phase. If she trains, support her recovery.',
+      active_follicular:'Physical strength and training tolerance are peaking. Great time for a workout together.',
+      trend_stress:'Data suggests cycles with higher stress tend to be longer/irregular.',
+      trend_ok:'Cycle length appears stable.'
     }
   }
 };
-
 function t(key){ return I18N[lang][key]; }
 
-function loadLang(){
-  try{ var l=localStorage.getItem('vp-lang'); if(l==='cs'||l==='en') lang=l; }catch(e){}
-}
-function saveLang(l){
-  lang=l;
-  try{ localStorage.setItem('vp-lang',l); }catch(e){}
-}
-
 /* ================================================================
-   2. STORAGE (Claude window.storage OR localStorage for Vercel)
+   2. STATE & STORAGE
    ================================================================ */
 var SETTINGS_KEY='cycle-settings';
 var JOURNAL_KEY='cycle-journal';
 
-var Store={
-  async get(key){
-    if(window.storage){
-      try{ var r=await window.storage.get(key,false); return (r&&r.value)?{value:r.value}:null; }catch(e){return null;}
-    } else {
-      try{ var v=localStorage.getItem(key); return v?{value:v}:null; }catch(e){return null;}
-    }
-  },
-  async set(key,value){
-    if(window.storage){
-      try{ var r=await window.storage.set(key,value,false); return !!r; }catch(e){return false;}
-    } else {
-      try{ localStorage.setItem(key,value); return true; }catch(e){return false;}
-    }
-  },
-  async remove(key){
-    if(window.storage){ try{ await window.storage.delete(key,false); }catch(e){} }
-    else { try{ localStorage.removeItem(key); }catch(e){} }
-  }
-};
+var settings = { periods:[], cycleLength:28, periodLength:5, age:'', activity:'light', contraception:false };
+var journal = [];
+var selectedDate = new Date();
+var jState = { mood:null, sleep:null, stress:null };
 
-/* ================================================================
-   3. STATE
-   ================================================================ */
-var settings=null;
-var journal=[];
-var selectedDate=todayLocal();
-var selectedRating=null;
-
-/* ================================================================
-   4. DATE HELPERS
-   ================================================================ */
-function todayLocal(){ var d=new Date(); return new Date(d.getFullYear(),d.getMonth(),d.getDate()); }
-function toISODate(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-function fromISODate(s){ var p=s.split('-').map(Number); return new Date(p[0],p[1]-1,p[2]); }
-
-function formatDateLong(d){
-  var tr=I18N[lang];
-  if(lang==='en') return tr.weekdays[d.getDay()]+', '+tr.months[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
-  return tr.weekdays[d.getDay()]+' '+d.getDate()+'. '+tr.months_gen[d.getMonth()]+' '+d.getFullYear();
+async function loadData() {
+  var s = localStorage.getItem(SETTINGS_KEY);
+  if(s) settings = Object.assign(settings, JSON.parse(s));
+  var j = localStorage.getItem(JOURNAL_KEY);
+  if(j) journal = JSON.parse(j);
 }
-function formatDateShort(d){
-  if(lang==='en') return (d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear();
-  return d.getDate()+'. '+(d.getMonth()+1)+'. '+d.getFullYear();
+async function saveData() {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+  localStorage.setItem(JOURNAL_KEY, JSON.stringify(journal));
 }
 
 /* ================================================================
-   5. CYCLE MATH
+   3. CYCLE MATH (SMART LUTEAL MODEL)
    ================================================================ */
-function getPhaseDayRanges(cycleLength,periodLength){
-  var pl=Math.min(periodLength,cycleLength-3);
-  var ov=Math.min(Math.max(cycleLength-14,pl+6),cycleLength-3);
-  var menstrual={start:1,end:pl};
-  var ovulatory={start:ov-2,end:Math.min(ov+2,cycleLength)};
-  var follicular={start:pl+1,end:ovulatory.start-1};
-  var luteal={start:ovulatory.end+1,end:cycleLength};
-  if(follicular.end<follicular.start) follicular.end=follicular.start;
-  return {menstrual:menstrual,follicular:follicular,ovulatory:ovulatory,luteal:luteal};
+// Luteální fáze je biologicky relativně fixní (zpravidla 12-14 dní do další menstruace).
+// Model: Folikulární fáze pohlcuje variabilitu délky cyklu.
+function getPhaseDayRanges(cycleLength, periodLength) {
+  var pl = Math.min(periodLength, cycleLength - 3);
+  var lutealLen = (cycleLength < 22) ? Math.floor(cycleLength/2) : 14; 
+  var lutealStart = cycleLength - lutealLen + 1;
+  var ovulatoryStart = lutealStart - 4; // Ovulační okno 4 dny před luteální
+
+  return {
+    menstrual:  { start: 1, end: pl },
+    follicular: { start: pl + 1, end: ovulatoryStart - 1 },
+    ovulatory:  { start: ovulatoryStart, end: lutealStart - 1 },
+    luteal:     { start: lutealStart, end: cycleLength }
+  };
 }
-function dayOfCycle(dateStr,lastStr,cycleLength){
-  var diff=Math.round((new Date(dateStr+'T00:00:00')-new Date(lastStr+'T00:00:00'))/86400000);
-  return ((diff%cycleLength)+cycleLength)%cycleLength+1;
+
+function getCycleDay(dateObj) {
+  if(!settings.periods.length) return 1;
+  var asc = settings.periods.slice().sort();
+  var start = new Date(asc[asc.length-1] + 'T00:00:00');
+  var d = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate());
+  var diff = Math.round((d - start) / 86400000);
+  return ((diff % settings.cycleLength) + settings.cycleLength) % settings.cycleLength + 1;
 }
-function getPhaseKey(day,r){
-  if(day>=r.menstrual.start&&day<=r.menstrual.end) return 'menstrual';
-  if(day>=r.follicular.start&&day<=r.follicular.end) return 'follicular';
-  if(day>=r.ovulatory.start&&day<=r.ovulatory.end) return 'ovulatory';
+
+function getPhaseKey(day, ranges) {
+  if (day >= ranges.menstrual.start && day <= ranges.menstrual.end) return 'menstrual';
+  if (day >= ranges.follicular.start && day <= ranges.follicular.end) return 'follicular';
+  if (day >= ranges.ovulatory.start && day <= ranges.ovulatory.end) return 'ovulatory';
   return 'luteal';
 }
 
 /* ================================================================
-   6. HISTORY / JOURNAL HELPERS
+   4. CONTEXTUAL RULE ENGINE
    ================================================================ */
-function sortedPeriodsAsc(){ return (settings&&settings.periods?settings.periods.slice():[]).sort(); }
-function getLastPeriodStart(){ var a=sortedPeriodsAsc(); return a.length?a[a.length-1]:null; }
-
-function computeHistoryStats(){
-  var asc=sortedPeriodsAsc();
-  if(asc.length<2) return null;
-  var diffs=[];
-  for(var i=1;i<asc.length;i++){
-    var diff=Math.round((fromISODate(asc[i])-fromISODate(asc[i-1]))/86400000);
-    if(diff>0) diffs.push(diff);
-  }
-  if(!diffs.length) return null;
-  var sum=diffs.reduce(function(a,b){return a+b;},0);
-  return {avg:Math.round(sum/diffs.length),min:Math.min.apply(null,diffs),max:Math.max.apply(null,diffs),count:diffs.length};
-}
-
-function getJournalEntry(dateStr){ for(var i=0;i<journal.length;i++){if(journal[i].date===dateStr) return journal[i];} return null; }
-function translateSymptoms(keys){
-  var sym=I18N[lang].symptoms;
-  return keys.map(function(k){return sym[k]||k;}).join(', ');
-}
-async function saveJournalEntry(entry){
-  journal=journal.filter(function(e){return e.date!==entry.date;}); journal.push(entry);
-  await Store.set(JOURNAL_KEY,JSON.stringify(journal));
-}
-async function deleteJournalEntry(dateStr){
-  journal=journal.filter(function(e){return e.date!==dateStr;});
-  await Store.set(JOURNAL_KEY,JSON.stringify(journal));
-}
-
-/* ================================================================
-   7. WHEEL
-   ================================================================ */
-var R=88, SW=24, CIRC=2*Math.PI*R;
-
-function buildWheelSegments(ranges,cycleLength){
-  var rotor=document.getElementById('wheel-rotor');
-  var marker=document.getElementById('wheel-marker');
-  rotor.querySelectorAll('.wheel-segment').forEach(function(el){el.remove();});
-  var order=[['menstrual',ranges.menstrual],['follicular',ranges.follicular],['ovulatory',ranges.ovulatory],['luteal',ranges.luteal]];
-  order.forEach(function(pair){
-    var key=pair[0],seg=pair[1];
-    var bf=(seg.start-1)/cycleLength*CIRC, dl=(seg.end-seg.start+1)/cycleLength*CIRC, af=Math.max(0,CIRC-bf-dl);
-    var circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
-    circle.setAttribute('cx',120); circle.setAttribute('cy',120); circle.setAttribute('r',R);
-    circle.setAttribute('fill','none'); circle.setAttribute('stroke','var('+PHASE_ACCENTS[key]+')');
-    circle.setAttribute('stroke-width',SW); circle.setAttribute('stroke-dasharray','0 '+bf+' '+dl+' '+af);
-    circle.classList.add('wheel-segment');
-    rotor.insertBefore(circle,marker);
+function getContextualTips(dateObj, phaseKey) {
+  var tips = [];
+  var dTime = dateObj.getTime();
+  
+  // Najdi záznamy z posledních 2 dnů
+  var recent = journal.filter(function(e){
+    var eTime = new Date(e.date+'T00:00:00').getTime();
+    var diff = (dTime - eTime) / 86400000;
+    return diff >= 0 && diff <= 2;
   });
-}
-function updateMarker(day,cycleLength,phaseKey){
-  var frac=(day-0.5)/cycleLength, angle=frac*2*Math.PI;
-  var marker=document.getElementById('wheel-marker');
-  marker.setAttribute('cx',(120+R*Math.cos(angle)).toFixed(2));
-  marker.setAttribute('cy',(120+R*Math.sin(angle)).toFixed(2));
-  marker.style.stroke='var('+PHASE_ACCENTS[phaseKey]+')';
+
+  var highStress = recent.some(function(e){ return e.stress >= 4; });
+  var badSleep = recent.some(function(e){ return e.sleep <= 2; });
+
+  if (highStress) tips.push(t('ctx').high_stress);
+  if (badSleep) tips.push(t('ctx').bad_sleep);
+
+  if (settings.activity === 'athlete' || settings.activity === 'active') {
+    if (phaseKey === 'luteal' || phaseKey === 'menstrual') tips.push(t('ctx').active_luteal);
+    if (phaseKey === 'follicular' || phaseKey === 'ovulatory') tips.push(t('ctx').active_follicular);
+  }
+
+  return tips;
 }
 
 /* ================================================================
-   8. RENDER FUNCTIONS
+   5. RENDER UI
    ================================================================ */
-function renderForDate(dateObj){
-  var lastStart=getLastPeriodStart(); if(!lastStart) return;
-  var tr=I18N[lang], dateStr=toISODate(dateObj);
-  document.getElementById('date-input').value=dateStr;
-  var day=dayOfCycle(dateStr,lastStart,settings.cycleLength);
-  var ranges=getPhaseDayRanges(settings.cycleLength,settings.periodLength);
-  var phaseKey=getPhaseKey(day,ranges);
-  var phase=tr.phases[phaseKey], seg=ranges[phaseKey];
-  document.getElementById('wheel-day').textContent=day;
-  var phaseLbl=document.getElementById('wheel-phase-label');
-  phaseLbl.textContent=phase.season; phaseLbl.style.color='var('+PHASE_ACCENTS[phaseKey]+')';
-  updateMarker(day,settings.cycleLength,phaseKey);
-  document.getElementById('result-card').style.setProperty('--accent','var('+PHASE_ACCENTS[phaseKey]+')');
-  document.getElementById('result-date').textContent=formatDateLong(dateObj)+' · '+tr.cycle_day_label+' '+day;
-  document.getElementById('result-season').textContent=phase.season;
-  document.getElementById('result-phase').textContent=phase.name;
-  document.getElementById('result-days').textContent=tr.days_range(seg.start,seg.end,settings.cycleLength);
-  document.getElementById('energy-fill').style.width=PHASE_ENERGY_PCT[phaseKey]+'%';
-  document.getElementById('energy-value').textContent=phase.energy_label;
-  document.getElementById('result-mood').textContent=phase.mood;
-  var list=document.getElementById('result-do-list'); list.innerHTML='';
-  phase.dos.forEach(function(text){var li=document.createElement('li');li.textContent=text;list.appendChild(li);});
-  document.getElementById('result-avoid-text').textContent=phase.avoid;
-  var entry=getJournalEntry(dateStr), box=document.getElementById('result-journal');
-  if(entry){
-    var parts=[entry.rating+'/5'];
-    if(entry.symptoms&&entry.symptoms.length) parts.push(translateSymptoms(entry.symptoms));
-    if(entry.note) parts.push('„'+entry.note+'"');
-    document.getElementById('result-journal-content').textContent=parts.join(' · ');
-    box.hidden=false;
-  } else { box.hidden=true; }
-  highlightForecastChip(dateStr);
+function renderMain() {
+  if(!settings.periods.length) return;
+  var ranges = getPhaseDayRanges(settings.cycleLength, settings.periodLength);
+  var day = getCycleDay(selectedDate);
+  var phaseKey = getPhaseKey(day, ranges);
+  var phaseData = t('phases')[phaseKey];
+
+  document.getElementById('date-input').value = toIso(selectedDate);
+  document.getElementById('wheel-day').textContent = day;
+  document.getElementById('wheel-phase-label').textContent = phaseData.season;
+  document.getElementById('wheel-phase-label').style.color = 'var('+PHASE_ACCENTS[phaseKey]+')';
+  
+  document.getElementById('pill-warning').hidden = !settings.contraception;
+  document.getElementById('result-card').style.setProperty('--accent', 'var('+PHASE_ACCENTS[phaseKey]+')');
+  document.getElementById('result-date').textContent = formatDate(selectedDate) + ' · ' + day + '. den';
+  document.getElementById('result-season').textContent = phaseData.season;
+  document.getElementById('result-phase').textContent = phaseData.name;
+  document.getElementById('energy-fill').style.width = PHASE_ENERGY_PCT[phaseKey]+'%';
+  document.getElementById('energy-value').textContent = phaseData.energy_label;
+  document.getElementById('result-mood').textContent = phaseData.mood;
+
+  var list = document.getElementById('result-do-list');
+  list.innerHTML = '';
+  // 1. Contextual rules (high priority)
+  var ctxTips = getContextualTips(selectedDate, phaseKey);
+  ctxTips.forEach(function(tip){
+    var li = document.createElement('li'); li.className='ctx-tip'; li.textContent = tip; list.appendChild(li);
+  });
+  // 2. Standard phase rules
+  phaseData.dos.forEach(function(tip){
+    var li = document.createElement('li'); li.textContent = tip; list.appendChild(li);
+  });
+  document.getElementById('result-avoid-text').textContent = phaseData.avoid;
+
+  drawWheel(ranges, settings.cycleLength, day, phaseKey);
+  renderForecast(ranges);
 }
 
-function renderForecast(){
-  var lastStart=getLastPeriodStart(); if(!lastStart) return;
-  var tr=I18N[lang], strip=document.getElementById('forecast-strip'); strip.innerHTML='';
-  var start=todayLocal(), ranges=getPhaseDayRanges(settings.cycleLength,settings.periodLength);
+function drawWheel(ranges, cycLen, day, phaseKey) {
+  var r = document.getElementById('wheel-rotor');
+  r.querySelectorAll('.wheel-segment').forEach(function(el){el.remove();});
+  var circ = 2*Math.PI*88;
+  [['menstrual',ranges.menstrual],['follicular',ranges.follicular],['ovulatory',ranges.ovulatory],['luteal',ranges.luteal]].forEach(function(p){
+    var len = (p[1].end - p[1].start + 1)/cycLen;
+    var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx',120); c.setAttribute('cy',120); c.setAttribute('r',88);
+    c.setAttribute('fill','none'); c.setAttribute('stroke-width',24);
+    c.setAttribute('stroke','var('+PHASE_ACCENTS[p[0]]+')');
+    c.setAttribute('stroke-dasharray','0 '+ ((p[1].start-1)/cycLen)*circ +' '+ len*circ +' '+ circ);
+    c.classList.add('wheel-segment');
+    r.insertBefore(c, document.getElementById('wheel-marker'));
+  });
+  var angle = ((day-0.5)/cycLen) * 2*Math.PI;
+  var mk = document.getElementById('wheel-marker');
+  mk.setAttribute('cx', 120 + 88*Math.cos(angle));
+  mk.setAttribute('cy', 120 + 88*Math.sin(angle));
+  mk.style.stroke = 'var('+PHASE_ACCENTS[phaseKey]+')';
+}
+
+function renderForecast(ranges) {
+  var strip = document.getElementById('forecast-strip'); strip.innerHTML='';
   for(var i=0;i<10;i++){
-    (function(i){
-      var d=new Date(start); d.setDate(start.getDate()+i);
-      var iso=toISODate(d), day=dayOfCycle(iso,lastStart,settings.cycleLength);
-      var phaseKey=getPhaseKey(day,ranges);
-      var btn=document.createElement('button'); btn.type='button'; btn.className='forecast-chip';
-      btn.dataset.date=iso; btn.style.setProperty('--accent','var('+PHASE_ACCENTS[phaseKey]+')');
-      var dow=document.createElement('span'); dow.className='fc-dow'; dow.textContent=tr.dow_short[d.getDay()];
-      var dt=document.createElement('span'); dt.className='fc-date'; dt.textContent=d.getDate()+'.'+(d.getMonth()+1)+'.';
-      var dot=document.createElement('span'); dot.className='fc-dot'; dot.setAttribute('aria-hidden','true');
-      btn.appendChild(dow); btn.appendChild(dt); btn.appendChild(dot);
-      btn.addEventListener('click',function(){selectedDate=d;renderForDate(selectedDate);});
-      strip.appendChild(btn);
-    })(i);
+    var d = new Date(selectedDate); d.setDate(d.getDate()+i);
+    var day = getCycleDay(d); var pk = getPhaseKey(day, ranges);
+    var b = document.createElement('div'); b.className='forecast-chip'; b.style.setProperty('--accent','var('+PHASE_ACCENTS[pk]+')');
+    if(i===0) b.classList.add('active');
+    b.innerHTML = '<span class="fc-dow">'+t('dow_short')[d.getDay()]+'</span><span class="fc-date">'+d.getDate()+'.'+(d.getMonth()+1)+'.</span><span class="fc-dot"></span>';
+    b.onclick = (function(dt){ return function(){ selectedDate=dt; renderMain(); }; })(d);
+    strip.appendChild(b);
   }
-  highlightForecastChip(toISODate(selectedDate));
 }
 
-function highlightForecastChip(iso){
-  document.querySelectorAll('.forecast-chip').forEach(function(c){c.classList.toggle('active',c.dataset.date===iso);});
+function renderInsights() {
+  var asc = settings.periods.slice().sort();
+  var chart = document.getElementById('trend-chart'); chart.innerHTML='';
+  var text = document.getElementById('insights-smart-text');
+  
+  if(asc.length < 2) { text.innerHTML = '<div class="insight-text-box">Pro graf a analýzu přidej alespoň 2 menstruace.</div>'; return; }
+  
+  var diffs = [];
+  for(var i=1;i<asc.length;i++){
+    diffs.push(Math.round((new Date(asc[i]) - new Date(asc[i-1]))/86400000));
+  }
+  var avg = diffs.reduce(function(a,b){return a+b;},0) / diffs.length;
+  
+  // CSS Trend Chart
+  var maxH = Math.max.apply(null, diffs) + 5;
+  diffs.forEach(function(d){
+    var pct = (d/maxH)*100;
+    var w = document.createElement('div'); w.className='trend-bar-wrap';
+    w.innerHTML = '<div class="trend-bar" style="height:'+pct+'%; background:var('+(d>35||d<21?'--autumn':'--surface-2')+')"></div><span class="trend-val">'+d+'</span>';
+    chart.appendChild(w);
+  });
+  var avgLine = document.createElement('div'); avgLine.className='avg-line'; avgLine.style.bottom = ((avg/maxH)*100)+'%';
+  chart.appendChild(avgLine);
+
+  // Zjednodušená korelační analýza (Stres vs. Délka)
+  var variance = Math.max.apply(null, diffs) - Math.min.apply(null, diffs);
+  var insightMsg = t('ctx').trend_ok;
+  if (variance > 6) {
+    // Kdybychom meli vice dat v deniku, slo by pocitat Pearsona, takhle pouzijeme jednoduchou heuristiku:
+    var hasHighStress = journal.some(function(e){ return e.stress >= 4; });
+    if(hasHighStress) insightMsg = t('ctx').trend_stress;
+    else insightMsg = 'Cyklus výrazně kolísá (rozptyl '+variance+' dní).';
+  }
+  text.innerHTML = '<div class="insight-text-box"><strong>Průměr: '+Math.round(avg)+' dní.</strong><br>'+insightMsg+'</div>';
 }
 
-function renderHistorySection(){
-  var tr=I18N[lang], asc=sortedPeriodsAsc(), desc=asc.slice().reverse();
-  var statsEl=document.getElementById('history-stats'); statsEl.innerHTML='';
-  var stats=computeHistoryStats();
-  if(stats){
-    statsEl.appendChild(document.createTextNode(tr.history_avg(stats.avg,stats.min,stats.max,stats.count)));
-    if(stats.avg!==settings.cycleLength){
-      var applyBtn=document.createElement('button'); applyBtn.type='button'; applyBtn.className='link-btn';
-      applyBtn.style.cssText='padding:0;margin-left:6px;'; applyBtn.textContent=tr.history_apply(stats.avg);
-      applyBtn.addEventListener('click',async function(){
-        settings.cycleLength=stats.avg; await Store.set(SETTINGS_KEY,JSON.stringify(settings));
-        document.getElementById('set-cycle').value=stats.avg; refreshAll();
-      });
-      statsEl.appendChild(document.createTextNode(' ')); statsEl.appendChild(applyBtn);
-    }
-  } else if(asc.length===1){
-    statsEl.textContent=tr.history_one_entry;
-  } else { statsEl.textContent=tr.history_none; }
+function renderForms() {
+  document.getElementById('prof-age').value = settings.age;
+  document.getElementById('prof-activity').value = settings.activity;
+  document.getElementById('prof-pill').checked = settings.contraception;
+  document.getElementById('set-cycle').value = settings.cycleLength;
+  document.getElementById('set-period').value = settings.periodLength;
 
-  var list=document.getElementById('history-list'); list.innerHTML='';
-  desc.forEach(function(dateStr){
-    var idxAsc=asc.indexOf(dateStr), gapText='';
-    if(idxAsc>0){ var gap=Math.round((fromISODate(dateStr)-fromISODate(asc[idxAsc-1]))/86400000); gapText=' · '+tr.cycle_gap(gap); }
+  var hList = document.getElementById('history-list'); hList.innerHTML='';
+  settings.periods.slice().sort().reverse().forEach(function(p){
     var li=document.createElement('li'); li.className='history-item';
-    var main=document.createElement('span'); main.textContent=formatDateShort(fromISODate(dateStr))+gapText;
-    var del=document.createElement('button'); del.type='button'; del.className='delete-x'; del.textContent='×';
-    del.dataset.date=dateStr; del.setAttribute('aria-label',tr.history_delete_aria(formatDateShort(fromISODate(dateStr))));
-    li.appendChild(main); li.appendChild(del); list.appendChild(li);
+    li.innerHTML = '<span>'+formatDate(new Date(p))+'</span><button type="button" class="delete-x" data-id="'+p+'">×</button>';
+    li.querySelector('button').onclick = async function(){ settings.periods=settings.periods.filter(x=>x!==p); await saveData(); init(); };
+    hList.appendChild(li);
   });
-  document.getElementById('history-count').textContent=desc.length?String(desc.length):'';
-  document.getElementById('history-summary-text').textContent=tr.history_summary;
-  document.getElementById('add-period-date').setAttribute('aria-label',tr.history_add_aria);
-  document.getElementById('add-period-date').max=toISODate(todayLocal());
-  document.getElementById('drift-warning').hidden=!(function(){
-    var last=getLastPeriodStart(); if(!last) return false;
-    return Math.round((todayLocal()-fromISODate(last))/86400000)>settings.cycleLength;
-  })();
-}
 
-function renderJournalSection(){
-  var tr=I18N[lang], sorted=journal.slice().sort(function(a,b){return a.date<b.date?1:-1;});
-  var list=document.getElementById('journal-list'); list.innerHTML='';
-  if(!sorted.length){
-    var empty=document.createElement('li'); empty.className='empty-state'; empty.textContent=tr.journal_empty;
-    list.appendChild(empty);
-  } else {
-    sorted.forEach(function(entry){
-      var d=fromISODate(entry.date), li=document.createElement('li'); li.className='journal-item';
-      var top=document.createElement('div'); top.className='journal-item-meta';
-      var ds=document.createElement('span'); ds.className='j-date'; ds.textContent=formatDateShort(d);
-      var rs=document.createElement('span'); rs.className='j-rating'; rs.textContent=entry.rating+'/5';
-      var del=document.createElement('button'); del.type='button'; del.className='delete-x'; del.textContent='×';
-      del.dataset.date=entry.date; del.setAttribute('aria-label',tr.journal_delete_aria(formatDateShort(d)));
-      top.appendChild(ds); top.appendChild(rs); top.appendChild(del); li.appendChild(top);
-      if(entry.symptoms&&entry.symptoms.length){
-        var sym=document.createElement('div'); sym.className='j-symptoms'; sym.textContent=translateSymptoms(entry.symptoms); li.appendChild(sym);
-      }
-      if(entry.note){ var note=document.createElement('div'); note.className='j-note'; note.textContent=entry.note; li.appendChild(note); }
-      list.appendChild(li);
-    });
-  }
-  document.getElementById('journal-count').textContent=sorted.length?String(sorted.length):'';
-  document.getElementById('journal-summary-text').textContent=tr.journal_summary;
-  document.getElementById('j-date').max=toISODate(todayLocal());
-}
-
-function renderSymptomTags(){
-  var tr=I18N[lang], container=document.getElementById('symptom-tags');
-  var prevActive=Array.prototype.slice.call(container.querySelectorAll('.tag-btn.active')).map(function(b){return b.dataset.tag;});
-  container.innerHTML='';
-  SYMPTOM_KEYS.forEach(function(key){
-    var btn=document.createElement('button'); btn.type='button'; btn.className='tag-btn'+(prevActive.indexOf(key)!==-1?' active':'');
-    btn.dataset.tag=key; btn.textContent=tr.symptoms[key]||key;
-    btn.addEventListener('click',function(){btn.classList.toggle('active');});
-    container.appendChild(btn);
+  var jList = document.getElementById('journal-list'); jList.innerHTML='';
+  journal.slice().sort(function(a,b){return a.date<b.date?1:-1;}).forEach(function(j){
+    var li=document.createElement('li'); li.className='journal-item';
+    var top = '<div class="journal-item-meta"><span class="j-date">'+formatDate(new Date(j.date))+'</span><div class="j-badges">';
+    if(j.mood) top += '<span class="j-badge">Nálada '+j.mood+'</span>';
+    if(j.stress>=4) top += '<span class="j-badge" style="color:var(--autumn)">Stres</span>';
+    top += '</div><button type="button" class="delete-x" data-id="'+j.date+'">×</button></div>';
+    li.innerHTML = top;
+    if(j.note) { var n=document.createElement('div'); n.className='j-note'; n.textContent=j.note; li.appendChild(n); }
+    li.querySelector('button').onclick = async function(){ journal=journal.filter(x=>x.date!==j.date); await saveData(); renderForms(); renderInsights(); };
+    jList.appendChild(li);
   });
 }
+
+function toIso(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function formatDate(d){ return d.getDate()+'. '+(d.getMonth()+1)+'. '+d.getFullYear(); }
 
 /* ================================================================
-   9. APPLY LANGUAGE
+   6. BIND EVENTS
    ================================================================ */
-function applyLanguage(){
-  document.documentElement.lang=lang;
-  // Static [data-i18n] elements
+document.querySelectorAll('.lang-btn').forEach(function(b){
+  b.onclick = function(){ localStorage.setItem('vp-lang', b.dataset.lang); location.reload(); };
+});
+
+document.querySelectorAll('.j-rating-grp .rating-btn').forEach(function(btn){
+  btn.onclick = function(){
+    var parent = btn.closest('.j-rating-grp');
+    parent.querySelectorAll('.rating-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    jState[parent.dataset.type] = parseInt(btn.dataset.value, 10);
+  };
+});
+
+document.getElementById('journal-form').onsubmit = async function(e){
+  e.preventDefault();
+  var d = document.getElementById('j-date').value; if(!d) return;
+  var tags = Array.from(document.querySelectorAll('#symptom-tags .active')).map(x=>x.dataset.tag);
+  var entry = { date: d, mood: jState.mood, sleep: jState.sleep, stress: jState.stress, symptoms: tags, note: document.getElementById('j-note').value };
+  journal = journal.filter(function(x){return x.date !== d;}); journal.push(entry);
+  await saveData(); renderForms(); renderInsights(); renderMain();
+  document.querySelectorAll('.rating-btn, .tag-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('j-note').value=''; jState={mood:null,sleep:null,stress:null};
+};
+
+document.getElementById('profile-form').onsubmit = async function(e){
+  e.preventDefault();
+  settings.age = document.getElementById('prof-age').value;
+  settings.activity = document.getElementById('prof-activity').value;
+  settings.contraception = document.getElementById('prof-pill').checked;
+  await saveData(); renderMain();
+  var msg = document.getElementById('profile-status'); msg.textContent = 'Uloženo'; msg.classList.add('show'); setTimeout(function(){msg.classList.remove('show');},2000);
+};
+
+document.getElementById('settings-form').onsubmit = async function(e){
+  e.preventDefault();
+  settings.cycleLength = parseInt(document.getElementById('set-cycle').value, 10);
+  settings.periodLength = parseInt(document.getElementById('set-period').value, 10);
+  await saveData(); renderMain(); renderInsights();
+};
+
+document.getElementById('add-period-form').onsubmit = async function(e){
+  e.preventDefault();
+  var d = document.getElementById('add-period-date').value; if(!d) return;
+  if(settings.periods.indexOf(d)===-1) { settings.periods.push(d); await saveData(); init(); }
+  document.getElementById('add-period-date').value='';
+};
+
+document.getElementById('onboarding-form').onsubmit = async function(e){
+  e.preventDefault();
+  var d = document.getElementById('ob-start').value; if(!d) return;
+  settings.periods = [d];
+  settings.cycleLength = parseInt(document.getElementById('ob-cycle').value, 10);
+  settings.periodLength = parseInt(document.getElementById('ob-period').value, 10);
+  await saveData(); init();
+};
+
+document.getElementById('delete-data-btn').onclick = function(){
+  if(confirm(t('delete_data_btn')+'?')){ localStorage.clear(); location.reload(); }
+};
+
+/* ================================================================
+   7. INIT
+   ================================================================ */
+async function init() {
+  document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach(function(el){
-    var key=el.dataset.i18n, val=I18N[lang][key];
-    if(typeof val==='string') el.textContent=val;
+    var text = t(el.dataset.i18n); if(text) el.textContent = text;
   });
-  // Aria labels
-  document.getElementById('prev-day').setAttribute('aria-label',I18N[lang].prev_day_aria);
-  document.getElementById('next-day').setAttribute('aria-label',I18N[lang].next_day_aria);
-  document.getElementById('date-input').setAttribute('aria-label',I18N[lang].date_input_aria);
-  // Lang buttons
-  document.querySelectorAll('.lang-btn').forEach(function(btn){btn.classList.toggle('active',btn.dataset.lang===lang);});
-  // Symptom tags (preserving active state)
-  renderSymptomTags();
-  // Dynamic sections
-  if(settings&&settings.periods&&settings.periods.length){
-    renderForDate(selectedDate); renderForecast(); renderHistorySection(); renderJournalSection();
+  
+  var tagsBox = document.getElementById('symptom-tags'); tagsBox.innerHTML='';
+  SYMPTOM_KEYS.forEach(function(k){
+    var b = document.createElement('button'); b.type='button'; b.className='tag-btn'; b.dataset.tag=k;
+    b.textContent = t('symptoms')[k] || k; b.onclick = function(){ b.classList.toggle('active'); };
+    tagsBox.appendChild(b);
+  });
+
+  document.getElementById('j-date').value = toIso(new Date());
+
+  await loadData();
+  document.getElementById('loading-msg').hidden = true;
+  if(settings.periods.length === 0) {
+    document.getElementById('main').hidden = true;
+    document.getElementById('onboarding').hidden = false;
+  } else {
+    document.getElementById('onboarding').hidden = true;
+    document.getElementById('main').hidden = false;
+    renderForms();
+    renderInsights();
+    renderMain();
   }
 }
-
-/* ================================================================
-   10. FLOW CONTROL
-   ================================================================ */
-function refreshAll(){
-  var ranges=getPhaseDayRanges(settings.cycleLength,settings.periodLength);
-  buildWheelSegments(ranges,settings.cycleLength);
-  renderForDate(selectedDate); renderForecast(); renderHistorySection(); renderJournalSection();
-}
-
-function showMain(){
-  document.getElementById('onboarding').hidden=true; document.getElementById('main').hidden=false;
-  document.getElementById('set-cycle').value=settings.cycleLength;
-  document.getElementById('set-period').value=settings.periodLength;
-  refreshAll(); renderJournalSection();
-}
-
-function showOnboarding(){
-  document.getElementById('main').hidden=true; document.getElementById('onboarding').hidden=false;
-  document.getElementById('ob-start').value=''; document.getElementById('ob-cycle').value=28; document.getElementById('ob-period').value=5;
-}
-
-async function init(){
-  loadLang();
-  // Apply language first so onboarding text is correct immediately
-  applyLanguage();
-
-  var raw=await Store.get(SETTINGS_KEY);
-  var parsed=raw?JSON.parse(raw.value):null;
-  // Migrate old format
-  if(parsed&&!parsed.periods){
-    parsed.periods=parsed.lastPeriodStart?[parsed.lastPeriodStart]:[];
-    delete parsed.lastPeriodStart;
-    await Store.set(SETTINGS_KEY,JSON.stringify(parsed));
-  }
-  settings=parsed;
-
-  var jRaw=await Store.get(JOURNAL_KEY);
-  var jParsed=jRaw?JSON.parse(jRaw.value):[];
-  if(!Array.isArray(jParsed)) jParsed=[];
-  // Migrate old Czech symptom strings to keys
-  jParsed=jParsed.map(function(entry){
-    if(entry.symptoms&&entry.symptoms.length){
-      entry.symptoms=entry.symptoms.map(function(s){ return CS_SYMPTOM_TO_KEY[s]||s; });
-    }
-    return entry;
-  });
-  journal=jParsed;
-
-  document.getElementById('loading-msg').hidden=true;
-  if(!settings||!settings.periods||!settings.periods.length){ showOnboarding(); }
-  else { showMain(); }
-}
-
-/* ================================================================
-   11. EVENTS
-   ================================================================ */
-document.querySelectorAll('.lang-btn').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    if(btn.dataset.lang===lang) return;
-    saveLang(btn.dataset.lang);
-    applyLanguage();
-  });
-});
-
-document.getElementById('onboarding-form').addEventListener('submit',async function(e){
-  e.preventDefault();
-  var start=document.getElementById('ob-start').value; if(!start) return;
-  settings={periods:[start],cycleLength:parseInt(document.getElementById('ob-cycle').value,10)||28,periodLength:parseInt(document.getElementById('ob-period').value,10)||5};
-  await Store.set(SETTINGS_KEY,JSON.stringify(settings)); showMain();
-});
-
-document.getElementById('settings-form').addEventListener('submit',async function(e){
-  e.preventDefault();
-  settings.cycleLength=parseInt(document.getElementById('set-cycle').value,10)||28;
-  settings.periodLength=parseInt(document.getElementById('set-period').value,10)||5;
-  var ok=await Store.set(SETTINGS_KEY,JSON.stringify(settings)); refreshAll();
-  var tr=I18N[lang], status=document.getElementById('settings-status');
-  status.textContent=ok?tr.settings_saved:tr.settings_save_fail; status.classList.add('show');
-  setTimeout(function(){status.classList.remove('show');},2400);
-});
-
-document.getElementById('add-period-form').addEventListener('submit',async function(e){
-  e.preventDefault();
-  var dateVal=document.getElementById('add-period-date').value; if(!dateVal) return;
-  if(settings.periods.indexOf(dateVal)===-1) settings.periods.push(dateVal);
-  await Store.set(SETTINGS_KEY,JSON.stringify(settings));
-  document.getElementById('add-period-date').value=''; refreshAll();
-});
-
-document.getElementById('history-list').addEventListener('click',async function(e){
-  var btn=e.target.closest('.delete-x'); if(!btn) return;
-  settings.periods=settings.periods.filter(function(d){return d!==btn.dataset.date;});
-  await Store.set(SETTINGS_KEY,JSON.stringify(settings));
-  if(!settings.periods.length){showOnboarding();return;} refreshAll();
-});
-
-document.getElementById('rating-buttons').addEventListener('click',function(e){
-  var btn=e.target.closest('.rating-btn'); if(!btn) return;
-  document.querySelectorAll('.rating-btn').forEach(function(b){b.classList.remove('active');});
-  btn.classList.add('active'); selectedRating=parseInt(btn.dataset.value,10);
-  document.getElementById('journal-validation').hidden=true;
-});
-
-document.getElementById('journal-form').addEventListener('submit',async function(e){
-  e.preventDefault();
-  var dateVal=document.getElementById('j-date').value; if(!dateVal) return;
-  if(selectedRating===null){document.getElementById('journal-validation').hidden=false;return;}
-  var activeTags=Array.prototype.slice.call(document.querySelectorAll('#symptom-tags .tag-btn.active')).map(function(b){return b.dataset.tag;});
-  var note=document.getElementById('j-note').value.trim();
-  await saveJournalEntry({date:dateVal,rating:selectedRating,symptoms:activeTags,note:note});
-  document.querySelectorAll('.rating-btn').forEach(function(b){b.classList.remove('active');});
-  renderSymptomTags(); // resets active tags
-  document.getElementById('j-note').value=''; selectedRating=null;
-  renderJournalSection(); renderForDate(selectedDate);
-  var tr=I18N[lang], status=document.getElementById('journal-status');
-  status.textContent=tr.journal_saved; status.classList.add('show');
-  setTimeout(function(){status.classList.remove('show');},2000);
-});
-
-document.getElementById('journal-list').addEventListener('click',async function(e){
-  var btn=e.target.closest('.delete-x'); if(!btn) return;
-  await deleteJournalEntry(btn.dataset.date); renderJournalSection(); renderForDate(selectedDate);
-});
-
-document.getElementById('prev-day').addEventListener('click',function(){selectedDate=new Date(selectedDate);selectedDate.setDate(selectedDate.getDate()-1);renderForDate(selectedDate);});
-document.getElementById('next-day').addEventListener('click',function(){selectedDate=new Date(selectedDate);selectedDate.setDate(selectedDate.getDate()+1);renderForDate(selectedDate);});
-document.getElementById('today-btn').addEventListener('click',function(){selectedDate=todayLocal();renderForDate(selectedDate);});
-document.getElementById('date-input').addEventListener('change',function(e){if(!e.target.value)return;selectedDate=fromISODate(e.target.value);renderForDate(selectedDate);});
-
-document.getElementById('delete-data-btn').addEventListener('click',async function(){
-  if(!confirm(I18N[lang].delete_confirm)) return;
-  await Store.remove(SETTINGS_KEY); await Store.remove(JOURNAL_KEY);
-  settings=null; journal=[];
-  document.getElementById('history-details').removeAttribute('open');
-  document.getElementById('journal-details').removeAttribute('open');
-  document.getElementById('settings-details').removeAttribute('open');
-  showOnboarding();
-});
 
 init();
 })();
-</script>
-
-<script>
-if('serviceWorker' in navigator){
-  window.addEventListener('load',function(){
-    navigator.serviceWorker.register('/sw.js').catch(function(e){console.warn('SW:',e);});
-  });
-}
 </script>
 </body>
 </html>
