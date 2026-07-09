@@ -178,6 +178,26 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
         <label class="field"><span data-i18n="ob_cycle_label">Délka cyklu (dny)</span><input type="number" id="ob-cycle" min="21" max="45" value="28" required></label>
         <label class="field"><span data-i18n="ob_period_label">Délka menstruace</span><input type="number" id="ob-period" min="2" max="10" value="5" required></label>
       </div>
+
+      <div style="margin: 20px 0 16px; border-top: 1px solid var(--border); padding-top: 16px;">
+        <span style="display:block; font-size:13px; font-weight:600; color:var(--ink-dim); margin-bottom:12px; letter-spacing:.05em; text-transform:uppercase;" data-i18n="profile_summary">Profil a životní styl</span>
+        <div class="row-2">
+          <label class="field"><span data-i18n="prof_age">Věk</span><input type="number" id="ob-prof-age" min="15" max="60"></label>
+          <label class="field"><span data-i18n="prof_activity">Úroveň aktivity</span>
+            <select id="ob-prof-activity">
+              <option value="sedentary" data-i18n="act_sedentary">Sedavý</option>
+              <option value="light" data-i18n="act_light" selected>Mírně aktivní</option>
+              <option value="active" data-i18n="act_active">Aktivní (trénink, sport)</option>
+              <option value="athlete" data-i18n="act_athlete">Sportovec / Vysoká</option>
+            </select>
+          </label>
+        </div>
+        <label class="field checkbox">
+          <input type="checkbox" id="ob-prof-pill">
+          <span data-i18n="prof_pill">Užívá hormonální antikoncepci</span>
+        </label>
+      </div>
+
       <button type="submit" class="btn-primary" data-i18n="ob_submit">Uložit a zobrazit</button>
     </form>
   </section>
@@ -233,7 +253,6 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
       <div class="forecast-strip" id="forecast-strip"></div>
     </section>
 
-    <!-- PŘEHLEDY A ANALÝZA -->
     <details class="settings" id="insights-details">
       <summary><span class="summary-title" data-i18n="insights_summary">Přehledy a analýza</span></summary>
       <div class="settings-body" id="insights-body">
@@ -245,7 +264,6 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
       </div>
     </details>
 
-    <!-- PROFIL -->
     <details class="settings" id="profile-details">
       <summary><span class="summary-title" data-i18n="profile_summary">Profil a životní styl</span></summary>
       <div class="settings-body">
@@ -271,7 +289,6 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
       </div>
     </details>
 
-    <!-- DENÍK NÁLADY (ROZŠÍŘENÝ) -->
     <details class="settings" id="journal-details">
       <summary><span class="summary-title"><span data-i18n="journal_summary">Deník</span> <span class="count-badge" id="journal-count"></span></span></summary>
       <div class="settings-body">
@@ -313,7 +330,6 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(0.85);}
       </div>
     </details>
 
-    <!-- HISTORIE -->
     <details class="settings" id="history-details">
       <summary><span class="summary-title"><span data-i18n="history_summary">Historie cyklů</span> <span class="count-badge" id="history-count"></span></span></summary>
       <div class="settings-body">
@@ -370,6 +386,7 @@ var I18N = {
     delete_data_btn:'Smazat veškerá data', pill_warning:'Při hormonální antikoncepci jsou přirozené hormonální výkyvy potlačeny. Fáze berte spíše jako orientační.',
     dow_short:['Ne','Po','Út','St','Čt','Pá','So'], months_gen:['ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince'],
     symptoms:{cramps:'Křeče',headache:'Bolest hlavy',bloating:'Nadýmání',fatigue:'Únava',irritability:'Podrážděnost',anxiety:'Úzkost',sugar_cravings:'Chuť na sladké'},
+    ob_h2:'Než začneme', ob_start_label:'Začátek poslední menstruace', ob_cycle_label:'Délka cyklu (dny)', ob_period_label:'Délka menstruace', ob_submit:'Uložit a zobrazit',
     phases:{
       menstrual:{season:'Zima',name:'Menstruační fáze',energy_label:'Nízká', mood:'Tělo zpomaluje a bere si zpátečku. Časté jsou křeče, únava a chuť stáhnout se do klidu.', dos:['Navrhni klidný večer doma – deka, čaj, film.','Termofor nebo teplá koupel.','Dej jí prostor, pokud ho chce.'], avoid:'Náročné výlety a bagatelizování bolesti.'},
       follicular:{season:'Jaro',name:'Folikulární fáze',energy_label:'Stoupající', mood:'Hormony se probouzí. Nálada se zlepšuje a roste chuť do nových věcí.', dos:['Navrhni něco nového – výlet, kurz.','Plánujte společné věci a dovolenou.','Podpoř její nápady.'], avoid:'Nic zvláštního.'},
@@ -400,6 +417,7 @@ var I18N = {
     delete_data_btn:'Delete all data', pill_warning:'Hormonal contraception suppresses natural fluctuations. Treat phases as a rough guide.',
     dow_short:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], months_gen:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
     symptoms:{cramps:'Cramps',headache:'Headache',bloating:'Bloating',fatigue:'Fatigue',irritability:'Irritability',anxiety:'Anxiety',sugar_cravings:'Sugar cravings'},
+    ob_h2:'Before we start', ob_start_label:'First day of last period', ob_cycle_label:'Cycle length (days)', ob_period_label:'Period length', ob_submit:'Save and view',
     phases:{
       menstrual:{season:'Winter',name:'Menstrual Phase',energy_label:'Low', mood:'Body slows down. Cramps and fatigue are common.', dos:['Quiet evening at home.','Warm bath or hot water bottle.','Give her space.'], avoid:'Demanding events.'},
       follicular:{season:'Spring',name:'Follicular Phase',energy_label:'Rising', mood:'Energy and mood are lifting.', dos:['Suggest something new.','Plan holidays or projects.','Support her ideas.'], avoid:'Nothing in particular.'},
@@ -696,12 +714,19 @@ document.getElementById('add-period-form').onsubmit = async function(e){
   document.getElementById('add-period-date').value='';
 };
 
+// ÚPRAVA ZDE: Onboarding nyní zpracovává i hodnoty z profilu
 document.getElementById('onboarding-form').onsubmit = async function(e){
   e.preventDefault();
   var d = document.getElementById('ob-start').value; if(!d) return;
   settings.periods = [d];
   settings.cycleLength = parseInt(document.getElementById('ob-cycle').value, 10);
   settings.periodLength = parseInt(document.getElementById('ob-period').value, 10);
+  
+  // Zachytáváme nová profilová data
+  settings.age = document.getElementById('ob-prof-age').value;
+  settings.activity = document.getElementById('ob-prof-activity').value;
+  settings.contraception = document.getElementById('ob-prof-pill').checked;
+
   await saveData(); init();
 };
 
